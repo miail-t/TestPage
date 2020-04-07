@@ -1,0 +1,27 @@
+@mixin Dosis-font($font-size: 14px, $color: #fff, $line-height: auto) {
+    font-family: 'Dosis', sans-serif;
+    font-size: $font-size;
+    color: $color;
+    font-weight: 700;
+    line-height: $line-height;
+}
+
+@mixin Lato-font($font-size: 16px, $color: #cacaca, $line-height: auto) {
+    font-family: 'Lato', sans-serif;
+    font-size: $font-size;
+    color: $color;
+    font-weight: 400;
+    line-height: $line-height;
+}
+
+@mixin active($background: #81398b, $color: auto) {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    position: relative;
+    &:active {
+        background: $background;
+        top: 2px;
+        color: $color;
+    }
+}

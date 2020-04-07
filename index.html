@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Страница</title>
+    <link rel="stylesheet" type="text/css" href="style/reset.css">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header">
+                <div class="reserved-area">
+                    <div class="reserved-area__text">area riservata</div>
+                    <img class="reserved-area__icon" src="./src/Oggetto_vettoriale_avanzato.png" alt="lock">
+                </div>
+                <div class="logo">
+                    <img src="./src/LOGO.svg" alt="logo">
+                </div>
+
+                <nav>
+                    <ul class="navBar">
+                        <li class="navBar__item"> <a class="link" href="">home</a></li>
+                        <li class="navBar__item"> <a class="link navBar__item" href="">azienda</a>
+                            <ul class="submenu">
+                                <li class="submenu__item"><a class="submenu__link" href="">storia</a>
+                                </li>
+                                <hr class="submenu__hr">
+                                <li class="submenu__item"><a class="submenu__link" href="">mm design</a>
+                                </li>
+                                <hr class="submenu__hr">
+                                <li class="submenu__item"><a class="submenu__link" href="">designer</a>
+                                </li>
+                                <hr class="submenu__hr">
+                                <li class="submenu__item"><a class="submenu__link" href="">certificazioni</a></li>
+                            </ul>
+                        </li>
+                        <li class="navBar__item"> <a class="link" href="">collezioni</a>
+                        </li>
+                        <li class="navBar__item"> <a class="link" href="">news</a>
+                        </li>
+                        <li class="navBar__item"> <a class="link" href="">contatti</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+    </header>
+
+
+    <div class="slider-container">
+
+        <div class="slider">
+            <div id="container_items" class="container_items">
+                <div class="item_1 active"><img class="img" src="./src/bg_main.png" alt="1"></div>
+                <div class="item_1"><img class="img" src="./src/free-yosemite-wallpaper-1.jpg" alt="2"></div>
+                <div class="item_1"><img class="img" src="./src/Red-fall-2560x1600.jpg" alt="3"></div>
+            </div>
+            <div class="slider-row-dots">
+                <div class="slider-row-dots__dot active" onclick="getSlide(0)"></div>
+                <div class="slider-row-dots__dot" onclick="getSlide(1)"></div>
+                <div class="slider-row-dots__dot" onclick="getSlide(2)"></div>
+            </div>
+
+            <div class="label">
+                <div class="title-case">
+                    <h1 class="title-case__title">Lampadari contemporanei</h1>
+                    <p class="title-case__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod
+                        tempor
+                        dolore </p>
+                </div>
+            </div>
+            <div class="left-control" onclick="slideRun('left')"></div>
+            <div class="rigth-control" onclick="slideRun('right')"></div>
+
+            <div class="dropdown-menu">
+                <div class="dropdown-menu__control">
+                    <img class="arrow-dropdown" src="./src/icon_arrow_dropdown.png" alt="">
+                </div>
+
+                <div class="dropdown-menu__content">
+                    <div class="tile-containet">
+                        <div class="tile tile_col">
+                            <h2 class="tile__title">Stai pensando ad un
+                                progetto?</h2>
+                            <p class="tile__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                eiusmod tempor dolore </p>
+                            <span class="tile__details">Approfondisci</span>
+                        </div>
+                        <div class="tile">
+                            <h2 class="tile__title">Vi aspettiamo alla fiera
+                                Euroluce</h2>
+                            <p class="tile__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                eiusmod tempor dolore </p>
+                            <span class="tile__details">Approfondisci</span>
+                        </div>
+                        <div class="tile tile_black">
+                            <h2 class="tile__title text-white">Scopri la nuova collezione</h2>
+                            <p class="tile__text text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                sed do
+                                eiusmod tempor dolore </p>
+                            <span class="tile__details text-white">Approfondisci</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  <div class="slider">
+        <div class="label">
+            <div class="title-case">
+                <h1 class="title-case__title">Lampadari contemporanei</h1>
+                <p class="title-case__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                    tempor
+                    dolore </p>
+            </div>
+        </div>
+
+    </div> -->
+
+    <footer>
+        <div class="container">
+            <div class="footer">
+                <div class="offer-description">
+                    <div class="column">
+                        <h3 class="column__title">Lampadari made in italy</h3>
+                        <p class="column__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                            eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                            exercitation ullamco laboris nisi ut aliquip ex ea </p>
+                    </div>
+                    <div class="column">
+                        <div class="column__title">lampadari artigianali</div>
+                        <div class="column__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                            eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                            exercitation ullamco laboris nisi ut aliquip ex ea </div>
+                    </div>
+                    <div class="column">
+                        <div class="column__title"> <span>45</span> anni di esperienza</div>
+                        <div class="column__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                            eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                            exercitation ullamco laboris nisi ut aliquip ex ea </div>
+                    </div>
+                    <div class="column">
+                        <div class="column__title">NewSletter</div>
+                        <div class="column__text">
+                            <form class="sletter" method="" action="">
+                                <input id="inputName" class="sletter__input" type="text" placeholder="Nome e Cognome">
+                                <input id="inputEmail" class="sletter__input" type="email" placeholder="Email">
+
+                                <div class="check-box-case">
+                                    <input type="checkbox" class="check-box-case__input"><span
+                                        class="check-box-case__description">Acconsento al
+                                        trattamento dei dati</span><br>
+                                </div>
+                                <button class="button button-in-sletter">iscriviti</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom-part">
+                <div class="info">
+                    <p class="info__item"> MMLAMPADARI srl</p>
+                    <p class="info__item">Via Feltrina 00</p>
+                    <p class="info__item">31111 Pederobba (TV)</p>
+                    <p class="info__item">0423.123456</p>
+                    <p class="info__item">info@mmlampadari.mm</p>
+                    <p class="info__item">P.IVA 04123456789</p>
+
+                </div>
+                <div class="social-case">
+                    <a class="social-case__item" href=""> <img src="./src/facebook.png" alt=""></a>
+                    <a class="social-case__item" href=""> <img src="./src/insta.png" alt=""></a>
+                    <a class="social-case__item" href=""><img src="./src/Livello_4.png" alt=""></a>
+                </div>
+                <ul class="language-case">
+                    <p class="language-case__item">ita</p>|
+                    <p class="language-case__item">eng</p>|
+                    <p class="language-case__item">deu</p>|
+                    <p class="language-case__item">рус</p>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="./js-slider/script.js"></script>
+</body>
+
+</html>
