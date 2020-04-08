@@ -1,15 +1,3 @@
-/* @mixin active($background: #81398b, $color: auto) {
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
-    position: relative;
-
-    &:active {
-        background: $background;
-        top: 2px;
-        color: $color;
-    }
-} */
 body,
 html {
   margin: 0px;
@@ -66,6 +54,7 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  cursor: pointer;
   text-transform: uppercase;
   padding: 1px 0px;
   font-family: "Open Sans";
@@ -163,7 +152,6 @@ header {
 }
 
 .slider-container {
-  z-index: -1;
   width: 100vw;
 }
 
@@ -238,13 +226,12 @@ header {
   cursor: pointer;
   border-radius: 50%;
   margin: 5px;
-  z-index: 1;
+  z-index: 0;
   background-color: #fff;
   border: 2px solid #000000;
 }
 
 .slider-row-dots .active {
-  z-index: 1;
   background-color: #e2d1a6;
 }
 
@@ -291,7 +278,12 @@ header {
   line-height: 24px;
 }
 
+main {
+  position: relative;
+}
+
 .dropdown-menu {
+  z-index: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -303,7 +295,6 @@ header {
       -ms-flex-align: center;
           align-items: center;
   position: absolute;
-  bottom: -190px;
 }
 
 .dropdown-menu__control {
@@ -332,6 +323,16 @@ header {
 }
 
 .tile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding: 17px 20px 8px 15px;
 }
 
@@ -344,6 +345,10 @@ header {
   line-height: 30px;
 }
 
+.tile__title_white {
+  color: #ffffff;
+}
+
 .tile__text {
   padding-bottom: 18px;
   font-family: "Open Sans";
@@ -353,6 +358,10 @@ header {
   line-height: 25px;
 }
 
+.tile__text_white {
+  color: #fefefe;
+}
+
 .tile__details {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -360,14 +369,31 @@ header {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  cursor: pointer;
+  font-family: "Open Sans";
+  font-size: 18px;
+  color: #000000;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+.tile__details:hover {
+  text-decoration: underline;
+}
+
+.tile__details_white {
+  color: #ffffff;
 }
 
 .tile_col {
   background-color: #e2d1a6;
 }
 
-.text-white {
-  color: #ffffff;
+.title_white {
+  background-color: #ffffff;
 }
 
 .tile_black {
@@ -375,6 +401,7 @@ header {
 }
 
 footer {
+  position: relative;
   background: #353436;
 }
 
@@ -434,12 +461,22 @@ footer {
   line-height: 17px;
 }
 
-.sletter {
+.form {
   max-width: 184px;
 }
 
-.sletter__input {
-  width: 100%;
+.form__title {
+  padding-bottom: 16px;
+  font-family: 'Playfair Display SC', serif;
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: 700;
+  line-height: -height;
+  font-style: -style;
+}
+
+.form__input {
+  width: calc(100% - 12px);
   height: 32px;
   padding: 0 6px;
   margin-bottom: 10px;
@@ -450,7 +487,7 @@ footer {
   line-height: 18px;
 }
 
-.sletter__input::-webkit-input-placeholder {
+.form__input::-webkit-input-placeholder {
   font-family: "Open Sans";
   font-size: 14px;
   color: #8c8c8c;
@@ -458,7 +495,7 @@ footer {
   line-height: 18px;
 }
 
-.sletter__input:-ms-input-placeholder {
+.form__input:-ms-input-placeholder {
   font-family: "Open Sans";
   font-size: 14px;
   color: #8c8c8c;
@@ -466,7 +503,7 @@ footer {
   line-height: 18px;
 }
 
-.sletter__input::-ms-input-placeholder {
+.form__input::-ms-input-placeholder {
   font-family: "Open Sans";
   font-size: 14px;
   color: #8c8c8c;
@@ -474,7 +511,7 @@ footer {
   line-height: 18px;
 }
 
-.sletter__input::placeholder {
+.form__input::placeholder {
   font-family: "Open Sans";
   font-size: 14px;
   color: #8c8c8c;
@@ -492,6 +529,10 @@ footer {
   margin-bottom: 2px;
 }
 
+.check-box-case:hover .check-box-case__description {
+  color: #e2d1a6;
+}
+
 .check-box-case__input {
   width: 8px;
   height: 8px;
@@ -506,13 +547,31 @@ footer {
   line-height: 24px;
 }
 
-.button-in-sletter {
+.button-in-form {
   width: 100%;
   height: 32px;
 }
 
-.button-in-sletter:active {
+.button-in-form:active {
   background: #e2d1a6;
+}
+
+.button-in-form:hover {
+  background: #e2d1a6;
+}
+
+.button-in-form__forgot-password {
+  padding-top: 12px;
+  cursor: pointer;
+  font-family: "Open Sans";
+  font-size: 12px;
+  color: #b5b4b4;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.button-in-form__forgot-password:hover {
+  color: #e2d1a6;
 }
 
 .bottom-part {
@@ -585,5 +644,67 @@ footer {
 
 .language-case__item:hover {
   color: #e2d1a6;
+}
+
+.modal {
+  display: none;
+  position: absolute;
+  top: 0px;
+  background: rgba(255, 255, 255, 0.6);
+  width: 100%;
+  height: 100ch;
+}
+
+.registration-area {
+  width: calc(596px - 154px);
+  border: 1px solid #ffffff;
+  background-color: #353436;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: 258px;
+  z-index: 1;
+  padding: 15px 77px 27px;
+}
+
+.registration-area__title {
+  text-transform: uppercase;
+  padding-bottom: 27px;
+  font-family: 'Playfair Display SC', serif;
+  font-size: 24px;
+  color: #ffffff;
+  font-weight: 700;
+  line-height: -height;
+  font-style: -style;
+}
+
+.registration-area__content {
+  max-width: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.registration-area__close {
+  position: absolute;
+  top: 13px;
+  right: 18px;
+  cursor: pointer;
+}
+
+.block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 /*# sourceMappingURL=style.css.map */
