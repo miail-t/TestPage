@@ -28,6 +28,7 @@ a {
 
 .button {
     text-transform: uppercase;
+    border: none;
     @include Open-sans(18px);
     background: $COLOR_BLACK;
 }
@@ -58,6 +59,7 @@ header {
     @include Open-sans(14px);
 
     &__text {
+        margin: 0;
         padding-right: 10px;
     }
 
@@ -81,11 +83,11 @@ header {
     justify-content: space-between;
     width: 464px;
     padding: 22px 0px;
-
+    margin: 0;
     &__item {
         position: relative;
         height: 100%;
-
+        list-style: none;
         &:hover {
             .submenu {
                 display: flex;
@@ -110,7 +112,6 @@ header {
     text-transform: uppercase;
     line-height: 24px;
     color: $COLOR_WHITE;
-
     @include Open-sans(18px, $COLOR_WHITE, -height, 400);
 
     &:hover {
@@ -122,8 +123,6 @@ header {
         text-decoration: underline;
     }
 }
-
-
 
 .submenu {
     position: absolute;
@@ -138,6 +137,7 @@ header {
 
     &__item {
         width: 100%;
+        list-style-type:none;
     }
 
     &__link {
@@ -249,11 +249,12 @@ header {
     &__title {
         display: flex;
         padding-bottom: 30px;
+        margin: 0;
         @include Playfair(30px, (), italic);
     }
 
     &__subtitle {
-
+        margin: 0;
         @include Open-sans(18px, $COLOR_BLACK)
     }
 }
@@ -261,7 +262,6 @@ header {
 main {
     position: relative;
 }
-
 
 .dropdown-menu {
     z-index: 0;
@@ -272,6 +272,7 @@ main {
     max-width: 1280px;
 
     &__control {
+       
         width: 84px;
         height: 28px;
         background-color: $COLOR_WHITE;
@@ -298,6 +299,7 @@ main {
     padding: 17px 20px 8px 15px;
 
     &__title {
+        margin: 0;
         padding-bottom: 15px;
         @include Playfair(28px, $COLOR_BLACK, (), 30px);
     }
@@ -308,6 +310,7 @@ main {
 
 
     &__text {
+        margin: 0;
         padding-bottom: 18px;
         @include Open-sans(16px, $COLOR_BLACK, 25px);
 
@@ -335,7 +338,7 @@ main {
     }
 }
 
-.number-font{
+.number-font {
     font-family: "Open San";
 }
 
@@ -380,11 +383,13 @@ footer {
 
     &__title {
         padding-bottom: 20px;
+        margin: 0;
         @include Playfair(14px, $COLOR_WHITE);
         text-transform: uppercase;
     }
 
     &__text {
+        margin: 0;
         max-width: 189px;
         @include Open-sans__regular();
     }
@@ -394,6 +399,7 @@ footer {
     max-width: 184px;
 
     &__title {
+        margin: 0;
         padding-bottom: 16px;
         @include Playfair(18px, $COLOR_WHITE, -style, -height)
     }
@@ -468,6 +474,7 @@ footer {
     &__forgot-password {
         padding-top: 12px;
         cursor: pointer;
+        margin: 0;
         @include Open-sans(12px, $COLOR_GREY_2, 10px);
 
         &:hover {
@@ -564,22 +571,30 @@ footer {
     height: 100vh;
 }
 
+.modal_activ{
+    display: block;
+}
+
 .registration-area {
     width: calc(596px - 154px);
     border: 1px solid $COLOR_WHITE;
     background-color: $COLOR_BLACK_3;
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
     position: absolute;
-    top: 258px;
+    top: -660px;
+    left: calc(50% - 596px/2);
     z-index: 2;
     padding: 15px 77px 27px;
+    transition: top 1s cubic-bezier(0, 0, 1, 1);
+    -webkit-transition: top 1s cubic-bezier(0, 0, 1, 1);
+    -moz-transition: top 1s cubic-bezier(0, 0, 1, 1);
 
     &__title {
         text-transform: uppercase;
         padding-bottom: 27px;
-
+        margin: 0;
         @include Playfair(24px, $COLOR_WHITE, -style, -height);
     }
 
@@ -598,8 +613,9 @@ footer {
     }
 }
 
-.block-registration {
+.registration-area_open {
     display: flex;
+    top: 258px
 }
 
 @media only screen and (max-width: 1270px) {
@@ -693,11 +709,10 @@ footer {
         left: 10px;
     }
 
-
     .registration-area {
         width: 250px;
         padding: 15px 30px 10px;
-
+        left: calc(50% - 312px/2);
         &__content {
             flex-wrap: wrap;
             justify-content: center;

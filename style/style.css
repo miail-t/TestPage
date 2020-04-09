@@ -14,6 +14,7 @@ a {
 
 .button {
   text-transform: uppercase;
+  border: none;
   font-family: "Open Sans";
   font-size: 18px;
   color: #fff;
@@ -66,6 +67,7 @@ header {
 }
 
 .reserved-area__text {
+  margin: 0;
   padding-right: 10px;
 }
 
@@ -92,11 +94,13 @@ header {
           justify-content: space-between;
   width: 464px;
   padding: 22px 0px;
+  margin: 0;
 }
 
 .navBar__item {
   position: relative;
   height: 100%;
+  list-style: none;
 }
 
 .navBar__item:hover .submenu {
@@ -160,6 +164,7 @@ header {
 
 .submenu__item {
   width: 100%;
+  list-style-type: none;
 }
 
 .submenu__link {
@@ -298,6 +303,7 @@ header {
   display: -ms-flexbox;
   display: flex;
   padding-bottom: 30px;
+  margin: 0;
   font-family: 'Playfair Display SC', serif;
   font-size: 30px;
   font-weight: 700;
@@ -306,6 +312,7 @@ header {
 }
 
 .title-case__subtitle {
+  margin: 0;
   font-family: "Open Sans";
   font-size: 18px;
   color: #000000;
@@ -375,6 +382,7 @@ main {
 }
 
 .tile__title {
+  margin: 0;
   padding-bottom: 15px;
   font-family: 'Playfair Display SC', serif;
   font-size: 28px;
@@ -388,6 +396,7 @@ main {
 }
 
 .tile__text {
+  margin: 0;
   padding-bottom: 18px;
   font-family: "Open Sans";
   font-size: 16px;
@@ -487,6 +496,7 @@ footer {
 
 .column__title {
   padding-bottom: 20px;
+  margin: 0;
   font-family: 'Playfair Display SC', serif;
   font-size: 14px;
   color: #ffffff;
@@ -497,6 +507,7 @@ footer {
 }
 
 .column__text {
+  margin: 0;
   max-width: 189px;
   color: #ffffff;
   font-family: "Open Sans";
@@ -510,6 +521,7 @@ footer {
 }
 
 .form__title {
+  margin: 0;
   padding-bottom: 16px;
   font-family: 'Playfair Display SC', serif;
   font-size: 18px;
@@ -625,6 +637,7 @@ footer {
 .button-in-form__forgot-password {
   padding-top: 12px;
   cursor: pointer;
+  margin: 0;
   font-family: "Open Sans";
   font-size: 12px;
   color: #b5b4b4;
@@ -749,11 +762,17 @@ footer {
   height: 100vh;
 }
 
+.modal_activ {
+  display: block;
+}
+
 .registration-area {
   width: calc(596px - 154px);
   border: 1px solid #ffffff;
   background-color: #353436;
-  display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -762,14 +781,19 @@ footer {
       -ms-flex-align: center;
           align-items: center;
   position: absolute;
-  top: 258px;
+  top: -660px;
+  left: calc(50% - 596px/2);
   z-index: 2;
   padding: 15px 77px 27px;
+  transition: top 1s cubic-bezier(0, 0, 1, 1);
+  -webkit-transition: top 1s cubic-bezier(0, 0, 1, 1);
+  -moz-transition: top 1s cubic-bezier(0, 0, 1, 1);
 }
 
 .registration-area__title {
   text-transform: uppercase;
   padding-bottom: 27px;
+  margin: 0;
   font-family: 'Playfair Display SC', serif;
   font-size: 24px;
   color: #ffffff;
@@ -796,10 +820,11 @@ footer {
   cursor: pointer;
 }
 
-.block-registration {
+.registration-area_open {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  top: 258px;
 }
 
 @media only screen and (max-width: 1270px) {
@@ -880,6 +905,7 @@ footer {
   .registration-area {
     width: 250px;
     padding: 15px 30px 10px;
+    left: calc(50% - 312px/2);
   }
   .registration-area__content {
     -ms-flex-wrap: wrap;

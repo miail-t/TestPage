@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Страница</title>
-    <link rel="stylesheet" type="text/css" href="style/reset.css">
+    <link rel="stylesheet" type="text/css" href="style/normalize.css">
     <link rel="stylesheet" type="text/css" href="style/style.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap"
@@ -18,7 +18,7 @@
         <div class="container">
             <div class="header">
                 <div class="reserved-area">
-                    <div id="btn-modal" class="reserved-area__text" onclick="modalControl()">area riservata</div>
+                    <div id="btn-modal" class="reserved-area__text">area riservata</div>
                     <img class="reserved-area__icon" src="./src/icon_look.png" alt="lock">
                 </div>
                 <div class="logo">
@@ -68,7 +68,6 @@
                     <div class="slider-row-dots__dot" onclick="getSlide(1)"></div>
                     <div class="slider-row-dots__dot" onclick="getSlide(2)"></div>
                 </div>
-
                 <div class="label">
                     <div class="title-case">
                         <h1 class="title-case__title">Lampadari contemporanei</h1>
@@ -80,8 +79,6 @@
                 </div>
                 <div class="left-control" onclick="slideRun('left')"></div>
                 <div class="rigth-control" onclick="slideRun('right')"></div>
-
-
             </div>
         </div>
 
@@ -123,7 +120,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
     </main>
@@ -237,10 +233,6 @@
         <img id="closeModal" class="registration-area__close" src="./src/icon_closeModal.svg" alt="close">
     </div>
     <div id="owerflow" class="modal"></div>
-
-
-
-
     <script src="./script/script.js" type="text/javascript"></script>
     <script src="./script/slider.js" type="text/javascript"></script>
 </body>
