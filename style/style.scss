@@ -1,30 +1,5 @@
 @import "mixin.scss";
 
-@mixin Open-sans($font-size: 12px, $color: #fff, $line-height: 24px, $font-weight:400) {
-    font-family: "Open Sans";
-    font-size: $font-size;
-    color: $color;
-    font-weight: $font-weight;
-    line-height: $line-height;
-}
-
-@mixin Open-sans__regular() {
-    color: $COLOR_WHITE;
-    font-family: "Open Sans";
-    font-size: 12px;
-    font-weight: 300;
-    line-height: 17px;
-}
-
-@mixin Playfair ($font-size: 16px, $color:$COLOR_BLACK_2, $font-style: normal, $line-height:24px) {
-    font-family: 'Playfair Display SC', serif;
-    font-size: $font-size;
-    color: $color;
-    font-weight: 700;
-    line-height: $line-height;
-    font-style: $font-style
-}
-
 $COLOR_WHITE: #ffffff;
 $COLOR_WHITE_2: #fefefe;
 $COLOR_WHITE_3: #fffefe;
@@ -203,6 +178,7 @@ header {
 }
 
 
+
 .left-control {
     left: 0;
 }
@@ -293,6 +269,7 @@ main {
     flex-direction: column;
     align-items: center;
     position: absolute;
+    max-width: 1280px;
 
     &__control {
         width: 84px;
@@ -304,6 +281,7 @@ main {
     }
 
     &__content {
+        max-width: 1280px;
         margin: 0 40px;
     }
 }
@@ -314,6 +292,7 @@ main {
 
 .tile {
     display: flex;
+    width: 100%;
     flex-direction: column;
     justify-content: space-between;
     padding: 17px 20px 8px 15px;
@@ -386,7 +365,6 @@ footer {
 
 .offer-description {
     display: flex;
-    flex-wrap: wrap;
     max-width: 930px;
     width: 100%;
     justify-content: space-between;
@@ -407,6 +385,7 @@ footer {
     }
 
     &__text {
+        max-width: 189px;
         @include Open-sans__regular();
     }
 }
@@ -637,8 +616,6 @@ footer {
     }
 }
 
-@media only screen and (max-width: 1085px) {}
-
 @media only screen and (max-width: 910px) {
     .label {
         left: 50%;
@@ -647,6 +624,7 @@ footer {
     .offer-description {
         justify-content: center;
         padding-top: 0px;
+        flex-wrap: wrap;
     }
 
     .column {

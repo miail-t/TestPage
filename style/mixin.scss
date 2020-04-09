@@ -1,9 +1,24 @@
-$COLOR_WHITE: #ffffff;
-$COLOR_WHITE_2: #fefefe;
-$COLOR_WHITE_3: #fffefe;
-$COLOR_BLACK: #000000;
-$COLOR_BLACK_2: #020202;
-$COLOR_BLACK_3: #353436;
-$COLOR_1: #e2d1a6;
-$COLOR_GREY: #8c8c8c;
-$COLOR_GREY_2: #b5b4b4;
+@mixin Open-sans($font-size: 12px, $color: #fff, $line-height: 24px, $font-weight:400) {
+    font-family: "Open Sans";
+    font-size: $font-size;
+    color: $color;
+    font-weight: $font-weight;
+    line-height: $line-height;
+}
+
+@mixin Open-sans__regular() {
+    color: $COLOR_WHITE;
+    font-family: "Open Sans";
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 17px;
+}
+
+@mixin Playfair ($font-size: 16px, $color:$COLOR_BLACK_2, $font-style: normal, $line-height:24px) {
+    font-family: 'Playfair Display SC', serif;
+    font-size: $font-size;
+    color: $color;
+    font-weight: 700;
+    line-height: $line-height;
+    font-style: $font-style
+}

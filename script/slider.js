@@ -6,8 +6,8 @@ const lineImage = document.getElementById("container_items");
 let animateRun = false;
 let slideIndex = 0;
 
-window.addEventListener("resize", (event) => {
-  lineImage.style.left = `-${event.target.innerWidth * slideIndex}px`;
+window.addEventListener("resize",function (event){
+  lineImage.style.left = event.target.innerWidth * slideIndex+"px"
 });
 
 function slideRun(type) {
@@ -37,19 +37,17 @@ function slideRun(type) {
       lineImage.style.left = "0px";
       slideIndex = 0;
     }
-    const id = setInterval(() => move(type, id), 0.1);
+    const id = setInterval(function (){move(type, id)} , 0.1);
   }
 }
 
 function move(type, id) {
   if (type === "right") {
-    lineImage.style.left = `${
-      new Number(lineImage.style.left.replace("px", "")) - 1
-    }px`;
+    lineImage.style.left = 
+      new Number(lineImage.style.left.replace("px", "")) - 1 +"px";
   } else {
-    lineImage.style.left = `${
-      new Number(lineImage.style.left.replace("px", "")) + 1
-    }px`;
+    lineImage.style.left = 
+      new Number(lineImage.style.left.replace("px", "")) + 1+"px";
   }
   if (new Number(lineImage.style.left.replace("px", "")) % innerWidth === 0) {
     clearInterval(id);
@@ -73,13 +71,13 @@ function getSlide(index) {
     if (slideIndex < index) {
       let i = slideIndex;
       while (i !== index) {
-        const id = setInterval(() => move("right", id), 0.01);
+        const id = setInterval(function () {move("right", id)}, 0.01);
         i++;
       }
     } else {
       let i = slideIndex;
       while (i !== index) {
-        const id = setInterval(() => move("left", id), 0.01);
+        const id = setInterval(function (){ move("left", id)}, 0.01);
         i--;
       }
     }
