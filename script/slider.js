@@ -2,11 +2,12 @@ const mas = document.getElementsByClassName("item_1");
 const widthItem = document.getElementsByClassName("slider")[0].clientWidth;
 let dots = document.getElementsByClassName("slider-row-dots__dot");
 const lineImage = document.getElementById("container_items");
+
 let animateRun = false;
 let slideIndex = 0;
 
 window.addEventListener("resize", (event) => {
-  lineImage.style.left = (`-${event.target.innerWidth * slideIndex}px`)
+  lineImage.style.left = `-${event.target.innerWidth * slideIndex}px`;
 });
 
 function slideRun(type) {
@@ -50,11 +51,7 @@ function move(type, id) {
       new Number(lineImage.style.left.replace("px", "")) + 1
     }px`;
   }
-  if (
-    new Number(lineImage.style.left.replace("px", "")) %
-      document.getElementsByClassName("slider")[0].clientWidth ===
-    0
-  ) {
+  if (new Number(lineImage.style.left.replace("px", "")) % innerWidth === 0) {
     clearInterval(id);
     if (document.getElementsByClassName("item-1")[0]) {
       if (document.getElementsByClassName("item-1 right")[0]) {

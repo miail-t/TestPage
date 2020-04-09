@@ -19,10 +19,10 @@
             <div class="header">
                 <div class="reserved-area">
                     <div id="btn-modal" class="reserved-area__text" onclick="modalControl()">area riservata</div>
-                    <img class="reserved-area__icon" src="./src/Oggetto_vettoriale_avanzato.png" alt="lock">
+                    <img class="reserved-area__icon" src="./src/icon_look.png" alt="lock">
                 </div>
                 <div class="logo">
-                    <img src="./src/LOGO.svg" alt="logo">
+                    <a href=""><img src="./src/LOGO.svg" alt="logo"></a>
                 </div>
 
                 <nav>
@@ -31,14 +31,15 @@
                         <li class="navBar__item"> <a class="link navBar__item" href="">azienda</a>
                             <ul class="submenu">
                                 <li class="submenu__item"><a class="submenu__link" href="">storia</a>
+                                    <hr class="submenu__hr">
                                 </li>
-                                <hr class="submenu__hr">
                                 <li class="submenu__item"><a class="submenu__link" href="">mm design</a>
+                                    <hr class="submenu__hr">
                                 </li>
-                                <hr class="submenu__hr">
                                 <li class="submenu__item"><a class="submenu__link" href="">designer</a>
+
+                                    <hr class="submenu__hr">
                                 </li>
-                                <hr class="submenu__hr">
                                 <li class="submenu__item"><a class="submenu__link" href="">certificazioni</a></li>
                             </ul>
                         </li>
@@ -58,9 +59,9 @@
         <div id="slider-container" class="slider-container">
             <div class="slider">
                 <div id="container_items" class="container_items">
-                    <div class="item_1 active"><img class="img" src="./src/bg_main.png" alt="1"></div>
-                    <div class="item_1"><img class="img" src="./src/free-yosemite-wallpaper-1.jpg" alt="2"></div>
-                    <div class="item_1"><img class="img" src="./src/Red-fall-2560x1600.jpg" alt="3"></div>
+                    <div class="item_1 active"><img class="item__img" src="./src/slider_item.png" alt="slide"></div>
+                    <div class="item_1 "><img class="item__img" src="./src/slider_item-1.jpg" alt="slide"></div>
+                    <div class="item_1"><img class="item__img" src="./src/slider_item-2.jpg" alt="slide"></div>
                 </div>
                 <div class="slider-row-dots">
                     <div class="slider-row-dots__dot active" onclick="getSlide(0)"></div>
@@ -83,45 +84,46 @@
 
             </div>
         </div>
+
         <div id="dropdown" class="dropdown-menu">
             <div id="dropdown_control" class="dropdown-menu__control" onclick="isOpenDropDown()">
-                <img class="arrow-dropdown" src="./src/icon_arrow_dropdown.png" alt="">
+                <img class="arrow-dropdown" src="./src/icon_arrow_dropdown.png" alt="arrow">
             </div>
-            <div class="container">
-                <div class="dropdown-menu__content" id="dropdown_content">
-                    <div class="tile-containet">
-                        <div class="tile tile_col">
-                            <h2 class="tile__title">Stai pensando ad un
-                                progetto?</h2>
-                            <p class="tile__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                eiusmod tempor dolore </p>
-                            <div class="tile__details tile__details_white">
-                                <span>Approfondisci</span>
-                            </div>
 
+            <div class="dropdown-menu__content" id="dropdown_content">
+                <div class="tile-containet">
+                    <div class="tile tile_col">
+                        <h2 class="tile__title">Stai pensando ad un
+                            progetto?</h2>
+                        <p class="tile__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor dolore </p>
+                        <div class="tile__details tile__details_white">
+                            <span>Approfondisci</span>
                         </div>
-                        <div class="tile title_white">
-                            <h2 class="tile__title">Vi aspettiamo alla fiera
-                                Euroluce</h2>
-                            <p class="tile__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                eiusmod tempor dolore </p>
-                            <div class="tile__details">
-                                <span>Approfondisci</span>
-                            </div>
+
+                    </div>
+                    <div class="tile title_white">
+                        <h2 class="tile__title">Vi aspettiamo alla fiera
+                            Euroluce</h2>
+                        <p class="tile__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor dolore </p>
+                        <div class="tile__details">
+                            <span>Approfondisci</span>
                         </div>
-                        <div class="tile tile_black">
-                            <h2 class="tile__title tile__title_white">Scopri la nuova collezione</h2>
-                            <p class="tile__text tile__text_white">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit,
-                                sed do
-                                eiusmod tempor dolore </p>
-                            <div class="tile__details tile__details_white">
-                                <span>Approfondisci</spa>
-                            </div>
+                    </div>
+                    <div class="tile tile_black">
+                        <h2 class="tile__title tile__title_white">Scopri la nuova collezione</h2>
+                        <p class="tile__text tile__text_white">Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit,
+                            sed do
+                            eiusmod tempor dolore </p>
+                        <div class="tile__details tile__details_white">
+                            <span>Approfondisci</span>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
 
     </main>
@@ -138,23 +140,23 @@
                             exercitation ullamco laboris nisi ut aliquip ex ea </p>
                     </div>
                     <div class="column">
-                        <div class="column__title">lampadari artigianali</div>
-                        <div class="column__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                        <h3 class="column__title">lampadari artigianali</h3>
+                        <p class="column__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
                             eiusmod
                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea </div>
+                            exercitation ullamco laboris nisi ut aliquip ex ea </p>
                     </div>
                     <div class="column">
-                        <div class="column__title"> <span>45</span> anni di esperienza</div>
-                        <div class="column__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                        <h3 class="column__title"> <span class="number-font">45</span> anni di esperienza</h3>
+                        <p class="column__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
                             eiusmod
                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea </div>
+                            exercitation ullamco laboris nisi ut aliquip ex ea </p>
                     </div>
                     <div class="column">
-                        <div class="column__title">Newsletter</div>
+                        <h3 class="column__title">Newsletter</h3>
                         <div class="column__text">
-                            <form class="form" method="" action="">
+                            <form class="form">
                                 <input id="inputName" class="form__input" type="text" placeholder="Nome e Cognome">
                                 <input id="inputEmail" class="form__input" type="email" placeholder="Email">
 
@@ -176,30 +178,30 @@
                     <p class="info__item">Via Feltrina 00</p>
                     <p class="info__item">31111 Pederobba (TV)</p>
                     <p class="info__item">0423.123456</p>
-                    <p class="info__item">info@mmlampadari.mm</p>
+                    <a href="mailto:info@mmlampadari.mm" class="info__item">info@mmlampadari.mm</a>
                     <p class="info__item">P.IVA 04123456789</p>
 
                 </div>
                 <div class="social-case">
-                    <a class="social-case__item" href=""> <img src="./src/facebook.png" alt=""></a>
-                    <a class="social-case__item" href=""> <img src="./src/insta.png" alt=""></a>
-                    <a class="social-case__item" href=""><img src="./src/Livello_4.png" alt=""></a>
+                    <a class="social-case__item" href=""> <img src="./src/icon_facebook.png" alt="facebook"></a>
+                    <a class="social-case__item" href=""> <img src="./src/icon_instagram.png" alt="instagram"></a>
+                    <a class="social-case__item" href=""><img src="./src/icon_pinterest.png" alt="pinterest"></a>
                 </div>
-                <ul class="language-case">
-                    <p class="language-case__item">ita</p>|
-                    <p class="language-case__item">eng</p>|
-                    <p class="language-case__item">deu</p>|
-                    <p class="language-case__item">рус</p>
-                </ul>
+                <div class="language-case">
+                    <a class="language-case__item">ita</a>|
+                    <a class="language-case__item">eng</a>|
+                    <a class="language-case__item">deu</a>|
+                    <a class="language-case__item">рус</a>
+                </div>
             </div>
         </div>
     </footer>
 
     <div id="modal" class="registration-area">
-        <div class="registration-area__title">area riservata</div>
+        <h2 class="registration-area__title">area riservata</h2>
         <div class="registration-area__content">
 
-            <form class="form" method="" action="">
+            <form class="form">
                 <h3 class="form__title">accedi</h3>
                 <input id="inputEmail_inAccedi" class="form__input" type="email" placeholder="E-mail">
                 <input id="inputPassword_inAccedi" class="form__input" type="password" placeholder="Password">
@@ -212,7 +214,7 @@
                 <button class="button button-in-form">accedi</button>
                 <p class="button-in-form__forgot-password">Password dimenticata</p>
             </form>
-            <form class="form" method="" action="">
+            <form class="form">
                 <h3 class="form__title">registrati</h3>
 
                 <input id="inputName_inRegistration" class="form__input" type="text" placeholder="Nome">
@@ -225,9 +227,8 @@
                         trattamento dei dati</span><br>
                 </div>
                 <div class="check-box-case">
-                    <input type="checkbox" class="check-box-case__input"><span
-                        class="check-box-case__description">Acconsento al
-                        trattamento dei dati</span><br>
+                    <input type="checkbox" class="check-box-case__input"><span class="check-box-case__description">Mi
+                        iscrivo alla Newsletter</span><br>
                 </div>
                 <button class="button button-in-form">iscriviti</button>
             </form>
@@ -236,12 +237,12 @@
         <img id="closeModal" class="registration-area__close" src="./src/icon_closeModal.svg" alt="close">
     </div>
     <div id="owerflow" class="modal"></div>
-    </div>
 
 
 
-    <script src="./js-slider/script.js"></script>
-    <script src="./script.js"></script>
+
+    <script src="./script/script.js"></script>
+    <script src="./script/slider.js"></script>
 </body>
 
 </html>

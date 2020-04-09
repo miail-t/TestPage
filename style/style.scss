@@ -9,14 +9,14 @@
 }
 
 @mixin Open-sans__regular() {
-    color: #ffffff;
+    color: $COLOR_WHITE;
     font-family: "Open Sans";
     font-size: 12px;
     font-weight: 300;
     line-height: 17px;
 }
 
-@mixin Playfair ($font-size: 16px, $color:#020202, $font-style: normal, $line-height:24px) {
+@mixin Playfair ($font-size: 16px, $color:$COLOR_BLACK_2, $font-style: normal, $line-height:24px) {
     font-family: 'Playfair Display SC', serif;
     font-size: $font-size;
     color: $color;
@@ -24,6 +24,18 @@
     line-height: $line-height;
     font-style: $font-style
 }
+
+$COLOR_WHITE: #ffffff;
+$COLOR_WHITE_2: #fefefe;
+$COLOR_WHITE_3: #fffefe;
+$COLOR_BLACK: #000000;
+$COLOR_BLACK_2: #020202;
+$COLOR_BLACK_3: #353436;
+$COLOR_1: #e2d1a6;
+$COLOR_GREY: #8c8c8c;
+$COLOR_GREY_2: #b5b4b4;
+$COLOR_FOCUS: yellow;
+
 
 body,
 html {
@@ -36,17 +48,17 @@ a {
 
 .container {
     max-width: 1280px;
-    //margin: auto;
+    margin: auto;
 }
 
 .button {
     text-transform: uppercase;
     @include Open-sans(18px);
-    background: #000000;
+    background: $COLOR_BLACK;
 }
 
 header {
-    background: #353436;
+    background: $COLOR_BLACK_3;
 }
 
 .header {
@@ -55,8 +67,9 @@ header {
     align-items: flex-end;
     justify-content: space-between;
     position: relative;
-    width: 100%;
+
     height: 132px;
+    padding: 0 40px;
 }
 
 .reserved-area {
@@ -71,6 +84,14 @@ header {
 
     &__text {
         padding-right: 10px;
+    }
+
+    &:hover {
+        color: $COLOR_1;
+    }
+
+    &:active {
+        text-decoration: underline;
     }
 }
 
@@ -95,19 +116,35 @@ header {
                 display: flex;
             }
         }
+
+        &:active {
+            text-decoration: underline;
+        }
+
+        &:focus {
+            color: $COLOR_FOCUS;
+        }
+    }
+
+    &:focus {
+        color: yellow;
     }
 }
 
 .link {
     text-transform: uppercase;
     line-height: 24px;
-    color: #ffffff;
+    color: $COLOR_WHITE;
 
-    @include Open-sans(18px, #ffffff, -height, 400);
+    @include Open-sans(18px, $COLOR_WHITE, -height, 400);
 
     &:hover {
         height: 13px;
-        @include Open-sans(18px, #E2D1A6, -height, 700);
+        @include Open-sans(18px, $COLOR_1, -height, 700);
+    }
+
+    &:active {
+        text-decoration: underline;
     }
 }
 
@@ -119,37 +156,40 @@ header {
     left: -18px;
     display: none;
     z-index: 1;
-    background-color: #353436;
+    background-color: $COLOR_BLACK_3;
     flex-direction: column;
     align-items: flex-start;
     padding: 25px 8px 15px;
 
-    &__item {}
+    &__item {
+        width: 100%;
+    }
 
     &__link {
         padding-left: 8px;
         text-transform: uppercase;
-        @include Open-sans(16px, #fffefe);
+        @include Open-sans(16px, $COLOR_WHITE_3);
 
         &:hover {
-            color: #e2d1a6;
+            color: $COLOR_1;
         }
     }
 
     &__hr {
-        width: 100%;
+        width: calc(100% - 2px);
     }
 }
 
 .slider-container {
-    width: 100vw;
+    height: 85vh;
+    width: 100%;
 }
 
 .slider {
 
     position: relative;
     width: 100%;
-    height: 514px;
+    height: 100%;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -157,10 +197,11 @@ header {
 }
 
 .item_1,
-.img {
+.item__img {
+    height: 100vh;
     width: 100vw;
-    height: 514px;
 }
+
 
 .left-control {
     left: 0;
@@ -203,43 +244,48 @@ header {
         margin: 5px;
         z-index: 0;
         background-color: #fff;
-        border: 2px solid #000000;
+        border: 2px solid $COLOR_BLACK;
     }
 
     .active {
-        background-color: #e2d1a6;
+        background-color: $COLOR_1;
     }
 }
 
 .label {
     position: absolute;
-    right: 0;
-    top: 251px;
+    left: 58%;
+    right: 0px;
+    top: 53%;
     opacity: 0.85;
-    background: #ffffff;
+    background: $COLOR_WHITE;
     height: 138px;
-    width: 531px;
 }
 
 .title-case {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    padding: 18px 0 18px 30px;
+    align-items: flex-start;
+    padding: 18px 42px 18px 30px;
+    max-width: 460px;
 
     &__title {
+        display: flex;
+        padding-bottom: 30px;
         @include Playfair(30px, (), italic);
     }
 
     &__subtitle {
-        @include Open-sans(18px, #000000)
+
+        @include Open-sans(18px, $COLOR_BLACK)
     }
 }
 
 main {
     position: relative;
 }
+
 
 .dropdown-menu {
     z-index: 0;
@@ -251,7 +297,7 @@ main {
     &__control {
         width: 84px;
         height: 28px;
-        background-color: #ffffff;
+        background-color: $COLOR_WHITE;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -274,22 +320,22 @@ main {
 
     &__title {
         padding-bottom: 15px;
-        @include Playfair(28px, #000000, (), 30px);
+        @include Playfair(28px, $COLOR_BLACK, (), 30px);
     }
 
     &__title_white {
-        color: #ffffff;
+        color: $COLOR_WHITE;
     }
 
 
     &__text {
         padding-bottom: 18px;
-        @include Open-sans(16px, #000000, 25px);
+        @include Open-sans(16px, $COLOR_BLACK, 25px);
 
     }
 
     &__text_white {
-        color: #fefefe;
+        color: $COLOR_WHITE_2;
     }
 
     &__details {
@@ -298,7 +344,7 @@ main {
         align-items: flex-end;
         cursor: pointer;
 
-        @include Open-sans(18px, #000000, 25px);
+        @include Open-sans(18px, $COLOR_BLACK, 25px);
 
         &:hover {
             text-decoration: underline;
@@ -306,27 +352,29 @@ main {
     }
 
     &__details_white {
-        color: #ffffff;
+        color: $COLOR_WHITE;
     }
 }
 
+.number-font{
+    font-family: "Open San";
+}
+
 .tile_col {
-    background-color: #e2d1a6;
+    background-color: $COLOR_1;
 }
 
 .title_white {
-    background-color: #ffffff;
+    background-color: $COLOR_WHITE;
 }
 
 .tile_black {
-    background-color: #000000;
+    background-color: $COLOR_BLACK;
 }
-
-
 
 footer {
     position: relative;
-    background: #353436;
+    background: $COLOR_BLACK_3;
 }
 
 .footer {
@@ -338,6 +386,7 @@ footer {
 
 .offer-description {
     display: flex;
+    flex-wrap: wrap;
     max-width: 930px;
     width: 100%;
     justify-content: space-between;
@@ -347,16 +396,17 @@ footer {
 .column {
     display: flex;
     flex-direction: column;
+    margin: 0 15px;
     max-width: 189px;
     color: white;
 
     &__title {
-        @include Playfair(14px, #ffffff);
+        padding-bottom: 20px;
+        @include Playfair(14px, $COLOR_WHITE);
         text-transform: uppercase;
     }
 
     &__text {
-        padding-top: 17px;
         @include Open-sans__regular();
     }
 }
@@ -366,18 +416,32 @@ footer {
 
     &__title {
         padding-bottom: 16px;
-        @include Playfair(18px, #ffffff, -style, -height)
+        @include Playfair(18px, $COLOR_WHITE, -style, -height)
     }
 
     &__input {
         width: calc(100% - 12px);
         height: 32px;
         padding: 0 6px;
-        margin-bottom: 10px;
-        @include Open-sans(14px, #000000, 18px, 300);
+        margin-bottom: 12px;
+        @include Open-sans(14px, $COLOR_BLACK, 18px, 300);
 
         &::placeholder {
-            @include Open-sans(14px, #8c8c8c, 18px, 300)
+            @include Open-sans(14px, $COLOR_GREY, 18px, 300);
+        }
+
+        &::-moz-placeholder {
+            color: $COLOR_BLACK_2;
+            line-height: 32px;
+            height: 32px;
+        }
+
+        &:active {
+            text-decoration: underline;
+        }
+
+        &:focus {
+            border-bottom: 2px solid $COLOR_FOCUS;
         }
     }
 }
@@ -385,11 +449,11 @@ footer {
 .check-box-case {
     display: flex;
     align-items: center;
-    margin-bottom: 2px;
+    padding-bottom: 10px;
 
     &:hover {
         .check-box-case__description {
-            color: #e2d1a6;
+            color: $COLOR_1;
         }
     }
 
@@ -400,29 +464,35 @@ footer {
 
     &__description {
         padding: 0 6px;
-        @include Open-sans(10px, #b5b4b4);
+
+        @include Open-sans(10px, $COLOR_GREY_2, 10px);
     }
 }
 
 .button-in-form {
     width: 100%;
     height: 32px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    position: relative;
 
     &:active {
-        background: #e2d1a6;
+        background: $COLOR_1;
+        top: 2px;
     }
 
     &:hover {
-        background: #e2d1a6;
+        background: $COLOR_1;
     }
 
     &__forgot-password {
         padding-top: 12px;
         cursor: pointer;
-        @include Open-sans(12px, #b5b4b4);
+        @include Open-sans(12px, $COLOR_GREY_2, 10px);
 
         &:hover {
-            color: #e2d1a6;
+            color: $COLOR_1;
         }
     }
 }
@@ -430,21 +500,40 @@ footer {
 .bottom-part {
     display: flex;
     padding: 0px 40px 17px;
+    align-items: center;
     justify-content: space-between;
 }
 
 .info {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     max-width: 703px;
     width: 100%;
-    @include Open-sans();
+
+    &__item {
+        @include Open-sans();
+        margin: 0 5px;
+
+        &:hover {
+            color: $COLOR_1;
+        }
+
+        &:active {
+            text-decoration: underline;
+        }
+
+        &:focus {
+            color: $COLOR_FOCUS;
+        }
+    }
 }
 
 .social-case {
     display: flex;
     justify-content: space-between;
     max-width: 70px;
+    margin: 0 10px;
     width: 100%;
 
     img:hover {
@@ -460,6 +549,7 @@ footer {
 
 .language-case {
     display: flex;
+
     justify-content: space-between;
     max-width: 160px;
     width: 100%;
@@ -468,9 +558,18 @@ footer {
 
     &__item {
         cursor: pointer;
+        margin: 0 10px;
 
         &:hover {
-            color: #e2d1a6;
+            color: $COLOR_1;
+        }
+
+        &:active {
+            text-decoration: underline;
+        }
+
+        &:focus {
+            color: $COLOR_FOCUS;
         }
 
     }
@@ -479,29 +578,30 @@ footer {
 .modal {
     display: none;
     position: absolute;
+    z-index: 1;
     top: 0px;
     background: rgba(255, 255, 255, 0.6);
     width: 100%;
-    height: 100ch;
+    height: 100vh;
 }
 
 .registration-area {
     width: calc(596px - 154px);
-    border: 1px solid #ffffff;
-    background-color: #353436;
+    border: 1px solid $COLOR_WHITE;
+    background-color: $COLOR_BLACK_3;
     display: none;
     flex-direction: column;
     align-items: center;
     position: absolute;
     top: 258px;
-    z-index: 1;
+    z-index: 2;
     padding: 15px 77px 27px;
 
     &__title {
         text-transform: uppercase;
         padding-bottom: 27px;
 
-        @include Playfair(24px, #ffffff, -style, -height)
+        @include Playfair(24px, $COLOR_WHITE, -style, -height);
     }
 
     &__content {
@@ -519,6 +619,146 @@ footer {
     }
 }
 
-.block{
+.block-registration {
     display: flex;
+}
+
+@media only screen and (max-width: 1270px) {
+    .title-case {
+        &__title {
+            padding-bottom: 20px;
+            font-size: 20px;
+        }
+
+        &__subtitle {
+            font-size: 14px;
+
+        }
+    }
+}
+
+@media only screen and (max-width: 1085px) {}
+
+@media only screen and (max-width: 910px) {
+    .label {
+        left: 50%;
+    }
+
+    .offer-description {
+        justify-content: center;
+        padding-top: 0px;
+    }
+
+    .column {
+        &__title {
+            padding-top: 15px;
+            padding-bottom: 7px;
+        }
+
+    }
+}
+
+@media only screen and (max-width: 770px) {
+    .navBar {
+        width: 330px;
+    }
+
+    .link {
+        @include Open-sans(12px, $COLOR_WHITE, -height, 400);
+
+        &:hover {
+            height: 13px;
+            @include Open-sans(12px, $COLOR_1, -height, 700);
+        }
+    }
+
+    .label {
+        height: 100px;
+    }
+
+    .title-case {
+        &__subtitle {
+            display: none;
+        }
+    }
+
+    .tile {
+
+        &__title {
+            font-size: 14px;
+            padding-bottom: 10px;
+        }
+
+        &__text {
+            font-size: 12px;
+        }
+
+        &__details {
+            font-size: 12px;
+        }
+
+
+    }
+
+    .info {
+        display: none;
+    }
+
+}
+
+@media only screen and (max-width: 640px) {
+    .header {
+        padding: 0 10px;
+    }
+
+    .logo {
+        left: 10px;
+    }
+
+
+    .registration-area {
+        width: 250px;
+        padding: 15px 30px 10px;
+
+        &__content {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
+    .form {
+        margin-bottom: 20px;
+    }
+}
+
+
+@media only screen and (max-width: 450px) {
+    .logo {
+        display: none;
+    }
+
+    .header {
+        height: 100%;
+        align-items: flex-start;
+    }
+
+    .navBar {
+        width: 100%;
+    }
+
+    .link {
+        margin-left: 10px;
+    }
+
+    .dropdown-menu {
+        display: none;
+    }
+
+    .label {
+        left: 0px;
+    }
+
+    .title-case {
+        align-items: center;
+    }
 }

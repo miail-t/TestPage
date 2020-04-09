@@ -10,8 +10,12 @@ getUpperBound = () => {
   return slider_container.offsetHeight - dropdown.offsetHeight;
 };
 
+dropdown.style.left = `${ (innerWidth-dropdown.offsetWidth)/2}px`;
+
 window.addEventListener("resize", () => {
   dropdown.style.top = `${getBottomLine()}px`;
+  dropdown.style.left = `${ (innerWidth-dropdown.offsetWidth)/2}px`;
+
 });
 
 dropdown.style.top = `${getBottomLine()}px`;
@@ -44,18 +48,18 @@ isOpenDropDown = () => {
   };
 };
 
-let btn = document.getElementById("btn-modal");
-let owerFloy = document.getElementById("owerflow");
+let openModalBtn = document.getElementById("btn-modal");
+let owerfloy = document.getElementById("owerflow");
 let modal = document.getElementById("modal");
 let closeModalBtn = document.getElementById("closeModal");
 
-btn.onclick = () => {
-  owerFloy.className = owerFloy.className.concat(" block");
-  modal.className = modal.className.concat(" block");
+openModalBtn.onclick = () => {
+  owerfloy.className = owerfloy.className.concat(" block-registration ");
+  modal.className = modal.className.concat(" block-registration ");
   modal.style.left = `${(innerWidth - modal.offsetWidth) / 2}px`;
 };
 
-owerFloy.onclick = () => {
+owerfloy.onclick = () => {
   closeModal();
 };
 
@@ -64,6 +68,6 @@ closeModalBtn.onclick = () => {
 };
 
 closeModal = () => {
-  owerFloy.className = owerFloy.className.replace("block", "");
-  modal.className = modal.className.replace("block", "");
+  owerfloy.className = owerfloy.className.replace("block-registration ", "");
+  modal.className = modal.className.replace("block-registration ", "");
 };
