@@ -1,86 +1,106 @@
-const mas = document.getElementsByClassName("item_1");
-const widthItem = document.getElementsByClassName("slider")[0].clientWidth;
+const lineImage = document.getElementById("wrapper");
+const masItem = document.getElementsByClassName("slider__item");
 let dots = document.getElementsByClassName("slider-row-dots__dot");
-const lineImage = document.getElementById("container_items");
-
+let slideIndex = 1;
+let step = -100;
 let animateRun = false;
-let slideIndex = 0;
 
-window.addEventListener("resize",function (event){
-  lineImage.style.left = event.target.innerWidth * slideIndex+"px"
-});
+item = masItem[masItem.length - 1].cloneNode(true);
+lineImage.insertBefore(item, masItem[0]);
+
+item = masItem[1].cloneNode(true);
+lineImage.appendChild(item);
 
 function slideRun(type) {
-  if (!animateRun) {
+  if (type === "left" && animateRun === false) {
     animateRun = true;
-    for (let i = 0; i < mas.length; i++) {
-      if (mas[i].className.indexOf("active") > 0) {
-        type === "left" ? (slideIndex = i - 1) : (slideIndex = i + 1);
-        mas[i].className = "item_1";
-        dots[i].className = "slider-row-dots__dot";
-      }
+    slideIndex--;
+    step += 100;
+
+    if (slideIndex <= 0) {
+      new Promise((resolve, reject) => {
+        lineImage.style.transform = "translateX(" + step + "%)";
+        setTimeout(() => {
+          lineImage.className = lineImage.className.concat(
+            " slider__wrapper_an"
+          );
+          lineImage.style.transform =
+            "translateX(-" + 100 * (masItem.length - 2) + "%)";
+
+          resolve();
+        }, 1000);
+      }).then(() => {
+        slideIndex = masItem.length - 2;
+        step = -300;
+        dots[0].className = "slider-row-dots__dot";
+        dots[slideIndex - 1].className = dots[slideIndex - 1].className.concat(
+          " active"
+        );
+
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            lineImage.className = lineImage.className.replace(
+              " slider__wrapper_an",
+              ""
+            );
+          }, 100);
+        }).finally((animateRun = false));
+      });
+    } else {
+      lineImage.style.transform = "translateX(" + step + "%)";
+      changeActivDot(type);
+      animateRun = false;
     }
-    if (slideIndex === -1 && type === "left") {
-      const div = mas[0].cloneNode(true);
-      div.className = "item-1";
-      lineImage.appendChild(div);
-      lineImage.style.left = "-".concat(
-        mas.length * document.getElementsByClassName("slider")[0].clientWidth +
-          "px"
-      );
-      slideIndex = mas.length - 1;
+  } else if (type === "right" && animateRun === false) {
+    animateRun = true;
+    slideIndex++;
+    step -= 100;
+
+    if (slideIndex + 1 === masItem.length) {
+      new Promise((resolve, reject) => {
+        lineImage.style.transform = "translateX(" + step + "%)";
+        setTimeout(() => {
+          lineImage.className = lineImage.className.concat(
+            " slider__wrapper_an"
+          );
+          lineImage.style.transform = "translateX(-" + 100 + "%)";
+          resolve();
+        }, 1000);
+      }).then(() => {
+        dots[slideIndex - 2].className = "slider-row-dots__dot";
+        dots[0].className = dots[0].className.concat(" active");
+        slideIndex = 1;
+        step = -100;
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            lineImage.className = lineImage.className.replace(
+              " slider__wrapper_an",
+              ""
+            );
+          }, 100);
+        }).finally((animateRun = false));
+      });
+    } else {
+      lineImage.style.transform = "translateX(" + step + "%)";
+      changeActivDot(type);
+      animateRun = false;
     }
-    if (slideIndex === mas.length && type === "right") {
-      const div = mas[mas.length - 1].cloneNode(true);
-      div.className = "item-1 right";
-      lineImage.insertBefore(div, mas[0]);
-      lineImage.style.left = "0px";
-      slideIndex = 0;
-    }
-    const id = setInterval(function (){move(type, id)} , 0.1);
   }
 }
 
-function move(type, id) {
-  if (type === "right") {
-    lineImage.style.left = 
-      new Number(lineImage.style.left.replace("px", "")) - 1 +"px";
-  } else {
-    lineImage.style.left = 
-      new Number(lineImage.style.left.replace("px", "")) + 1+"px";
-  }
-  if (new Number(lineImage.style.left.replace("px", "")) % innerWidth === 0) {
-    clearInterval(id);
-    if (document.getElementsByClassName("item-1")[0]) {
-      if (document.getElementsByClassName("item-1 right")[0]) {
-        lineImage.style.left = "0px";
-      }
-      document.getElementsByClassName("item-1")[0].remove();
-    }
-    mas[slideIndex].className = "item_1 active";
-    dots[slideIndex].className = dots[slideIndex].className.concat(" active");
-    animateRun = false;
-  }
-}
 function getSlide(index) {
-  if (!animateRun) {
-    animateRun = true;
-    mas[slideIndex].className = "item_1";
-    dots[slideIndex].className = "slider-row-dots__dot";
-    dots[index].className = dots[index].className.concat(" active");
-    if (slideIndex < index) {
-      let i = slideIndex;
-      while (i !== index) {
-        const id = setInterval(function () {move("right", id)}, 0.01);
-        i++;
-      }
-    } else {
-      let i = slideIndex;
-      while (i !== index) {
-        const id = setInterval(function (){ move("left", id)}, 0.01);
-        i--;
-      }
-    }
-    slideIndex = index;
-  }
+  lineImage.style.transform = "translateX(-" + 100 * index + "%)";
+  dots[slideIndex - 1].className = "slider-row-dots__dot";
+  dots[index - 1].className = dots[index - 1].className.concat(" active");
+  slideIndex = index;
+}
+
+function changeActivDot(type) {
+  type === "left"
+    ? (dots[slideIndex].className = "slider-row-dots__dot")
+    : (dots[slideIndex - 2].className = "slider-row-dots__dot");
+
+  dots[slideIndex - 1].className = dots[slideIndex - 1].className.concat(
+    " active"
+  );
 }

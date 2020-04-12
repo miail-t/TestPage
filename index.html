@@ -25,7 +25,7 @@
                     <a href=""><img src="./src/LOGO.svg" alt="logo"></a>
                 </div>
 
-                <nav>
+                <nav class="header__nav">
                     <ul class="navBar">
                         <li class="navBar__item"> <a class="link" href="">home</a></li>
                         <li class="navBar__item"> <a class="link navBar__item" href="">azienda</a>
@@ -54,36 +54,38 @@
 
         </div>
     </header>
-
     <main>
-        <div id="slider-container" class="slider-container">
-            <div class="slider">
-                <div id="container_items" class="container_items">
-                    <div class="item_1 active"><img class="item__img" src="./src/slider_item.png" alt="slide"></div>
-                    <div class="item_1 "><img class="item__img" src="./src/slider_item-1.jpg" alt="slide"></div>
-                    <div class="item_1"><img class="item__img" src="./src/slider_item-2.jpg" alt="slide"></div>
+        <div class="slider">
+            <div id="wrapper" class="slider__wrapper">
+                <div class="slider__item">
+                    <img class="img-in-slider" src="./src/slider_item.png" alt="">
                 </div>
-                <div class="slider-row-dots">
-                    <div class="slider-row-dots__dot active" onclick="getSlide(0)"></div>
-                    <div class="slider-row-dots__dot" onclick="getSlide(1)"></div>
-                    <div class="slider-row-dots__dot" onclick="getSlide(2)"></div>
+                <div class="slider__item">
+                    <img class="img-in-slider" src="./src/slider_item_1.png" alt="">
                 </div>
-                <div class="label">
-                    <div class="title-case">
-                        <h1 class="title-case__title">Lampadari contemporanei</h1>
-                        <p class="title-case__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                            eiusmod
-                            tempor
-                            dolore </p>
-                    </div>
+                <div class="slider__item">
+                    <img class="img-in-slider" src="./src/slider_item_2.png" alt="">
                 </div>
-                <div class="left-control" onclick="slideRun('left')"></div>
-                <div class="rigth-control" onclick="slideRun('right')"></div>
+            </div>
+            <div class="left-control" onclick="slideRun('left')"></div>
+            <div class="rigth-control" onclick="slideRun('right')"></div>
+            <div class="slider-row-dots">
+                <div class="slider-row-dots__dot active" onclick="getSlide(1)"></div>
+                <div class="slider-row-dots__dot" onclick="getSlide(2)"></div>
+                <div class="slider-row-dots__dot" onclick="getSlide(3)"></div>
+            </div>
+            <div class="label">
+                <div class="title-case">
+                    <h1 class="title-case__title">Lampadari contemporanei</h1>
+                    <p class="title-case__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod
+                        tempor
+                        dolore </p>
+                </div>
             </div>
         </div>
-
         <div id="dropdown" class="dropdown-menu">
-            <div id="dropdown_control" class="dropdown-menu__control" onclick="isOpenDropDown()">
+            <div id="dropdown_control" class="dropdown-menu__control">
                 <img class="arrow-dropdown" src="./src/icon_arrow_dropdown.png" alt="arrow">
             </div>
 
@@ -121,9 +123,7 @@
                 </div>
             </div>
         </div>
-
     </main>
-
     <footer>
         <div class="container">
             <div class="footer">
