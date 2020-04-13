@@ -13,7 +13,6 @@ lineImage.appendChild(beforeitem);
 
 function slideRun(type) {
   if (type === "left" && animateRun === false) {
-    console.log("SL " + slideIndex);
     animateRun = true;
     step += 100;
 
@@ -54,7 +53,6 @@ function slideRun(type) {
       animateRun = false;
     }
   } else if (type === "right" && animateRun === false) {
-    console.log("SL " + slideIndex);
     animateRun = true;
     step -= 100;
 
