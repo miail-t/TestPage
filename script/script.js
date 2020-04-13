@@ -30,6 +30,16 @@ function getBottomLine() {
   return slider_container.offsetHeight - dropdown_control.offsetHeight;
 }
 
+
+function getBottomLine() {
+  return slider_container.offsetHeight - dropdown_control.offsetHeight;
+}
+
+function getUpperBound(){
+  return dropdown.offsetHeight-dropdown_control.offsetHeight;
+};
+
+
 window.addEventListener("resize", function () {
   dropdown.style.top = getBottomLine() + "px";
 });
@@ -38,10 +48,10 @@ dropdown.style.top = getBottomLine() + "px";
 
 dropdown_control.onclick = function () {
   if (dropdownDirection === "up") {
-    dropdown.className = dropdown.className.concat(" dropdown-menu-up");
+    dropdown.style.transform = "translateY(-" + getUpperBound()+"px)"
     dropdownDirection = "down";
   } else {
-    dropdown.className = dropdown.className.replace(" dropdown-menu-up", "");
+    dropdown.style.transform = "translateY(0px)"
     dropdownDirection = "up";
   }
 };
